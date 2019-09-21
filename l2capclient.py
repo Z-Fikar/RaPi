@@ -22,15 +22,15 @@ port = 0x1001
 
 print("trying to connect to %s on PSM 0x%X" % (bt_addr, port))
 
-sock.l2cap_connect((bt_addr, port))
+sock.connect((bt_addr, port))
 
 print("connected.  type stuff")
 while True:
     data = input()
     if(len(data) == 0):
         break
-    sock.l2cap_send(data)
-    data = sock.l2cap_recv(1024)
+    sock.send(data)
+    data = sock.recv(1024)
     print("Data received:", str(data))
 
-sock.l2cap_close()
+sock.close()
