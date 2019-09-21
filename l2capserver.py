@@ -9,7 +9,7 @@ server_sock = bluetooth.BluetoothSocket(bluetooth.L2CAP)
 port = 0x1001
 
 server_sock.bind(("", port))
-server_sock.listen()
+server_sock.listen(1)
 
 #uuid = "94f39d29-7d6d-437d-973b-fba39e49d4ef"
 # bluetooth.advertise_service( server_sock, "SampleServerL2CAP",
