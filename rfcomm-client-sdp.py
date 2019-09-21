@@ -8,20 +8,23 @@
 from bluetooth import *
 import sys
 
-if sys.version < '3':
-    input = raw_input
+from settings import *
 
-addr = None
+# if sys.version < '3':
+#     input = raw_input
 
-if len(sys.argv) < 2:
-    print("no device specified.  Searching all nearby bluetooth devices for")
-    print("the SampleServer service")
-else:
-    addr = sys.argv[1]
-    print("Searching for SampleServer on %s" % addr)
+addr = SERVER_MAC_ADDRESS
+
+# if len(sys.argv) < 2:
+#     print("no device specified.  Searching all nearby bluetooth devices for")
+#     print("the SampleServer service")
+# else:
+#     addr = sys.argv[1]
+#     print("Searching for SampleServer on %s" % addr)
+print("Searching for SampleServer on %s" % addr)
 
 # search for the SampleServer service
-uuid = "94f39d29-7d6d-437d-973b-fba39e49d4ee"
+uuid = UUID
 service_matches = find_service( uuid = uuid, address = addr )
 
 if len(service_matches) == 0:

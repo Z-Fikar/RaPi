@@ -5,14 +5,15 @@
 # $Id: rfcomm-server.py 518 2007-08-10 07:20:07Z albert $
 
 import bluetooth as bt
+from settings import *
 
 server_sock = bt.BluetoothSocket(bt.RFCOMM)
-server_sock.bind(("", bt.PORT_ANY))
+server_sock.bind((SERVER_MAC_ADDRESS, bt.PORT_ANY))
 server_sock.listen(1)
 
 port = server_sock.getsockname()[1]
 
-uuid = "94f39d29-7d6d-437d-973b-fba39e49d4ee"
+uuid = UUID
 
 bt.advertise_service(server_sock, "SampleServer",
                      service_id=uuid,
