@@ -2,10 +2,11 @@ import bluetooth as bt
 
 from settings import *
 
-bd_addr = SERVER_MAC_ADDRESS
-port = 1
+sock = bt.BluetoothSocket(bt.L2CAP)
 
-sock = bt.BluetoothSocket(bt.RFCOMM)
+bd_addr = SERVER_MAC_ADDRESS
+port = 0x1001
+
 sock.connect((bd_addr, port))
 
 sock.send("hello!!")
