@@ -5,6 +5,7 @@
 # $Id: rfcomm-server.py 518 2007-08-10 07:20:07Z albert $
 
 from bluetooth import *
+from bluetooth.btcommon import SERIAL_PORT_CLASS, SERIAL_PORT_PROFILE
 
 server_sock=BluetoothSocket( RFCOMM )
 server_sock.bind(("",PORT_ANY))
